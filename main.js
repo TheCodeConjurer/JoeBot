@@ -23,7 +23,7 @@ client.on('messageCreate', msg => {
     if (msg.content === 'ping') {
         channel.send('pong');
     }
-    if (msg.content.toLowerCase( ).includes("ghost trick") {
+    if (msg.content.toLowerCase().includes("ghost trick")) {
         msg.delete();
     }
 });
