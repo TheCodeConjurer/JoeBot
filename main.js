@@ -19,6 +19,7 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', msg => {
+console.log(msg);
     let channel = client.channels.cache.get(msg.channelId);
     if (msg.content === 'ping') {
         channel.send('pong');
