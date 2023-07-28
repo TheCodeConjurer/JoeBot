@@ -23,6 +23,9 @@ client.on('messageCreate', msg => {
     if (msg.content === 'ping') {
         channel.send('pong');
     }
+    if (msg.content.toLowerCase( ).includes("ghost trick") {
+        msg.delete();
+    }
 });
 
 function kick(user,msg){
