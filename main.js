@@ -19,7 +19,7 @@ client.on('ready', () => {
 });
 
 client.on('messageCreate', msg => {
-console.log(msg);
+//console.log(msg.author.id);
     let channel = client.channels.cache.get(msg.channelId);
     if (msg.content === 'ping') {
         channel.send('pong');
@@ -27,6 +27,9 @@ console.log(msg);
     if (msg.content.toLowerCase().includes("ghost trick")) {
         msg.delete();
     }
+    if (msg.author.id === '1134163908538675220'){
+            msg.delete();
+}
 });
 
 function kick(user,msg){
