@@ -18,6 +18,15 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on('channelPinsUpdate', channel => {
+    let pinsLeft;
+    channel.messages.fetchPinned().then(data => {
+        pinsLeft = 50-data.size;
+        console.log(`${pinsLeft} pins left`)
+        channel.send(`${pinsLeft} pins left`);
+    });
+});
+
 client.on('messageCreate', msg => {
 //console.log(msg.author.id);
     let channel = client.channels.cache.get(msg.channelId);
@@ -28,8 +37,8 @@ client.on('messageCreate', msg => {
         msg.delete();
     }
     if (msg.author.id === '1134163908538675220'){
-            msg.delete();
-}
+        msg.delete();
+    }
 });
 
 function kick(user,msg){
