@@ -52,7 +52,7 @@ client.on('messageCreate', msg => {
         channel.send('pong');
     }
     if (msg.content.toLowerCase().includes("ghost trick")) {
-        msg.delete();
+//        msg.delete();
     }
     if (msg.author.id === '1134163908538675220'){
         msg.delete();
@@ -70,6 +70,9 @@ client.on('messageCreate', msg => {
 
     }
 });
+
+function GhostProtocol(msg){
+}
 
 function getRandom(array){
   return array[Math.floor(Math.random()*array.length)];
