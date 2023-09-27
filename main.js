@@ -22,6 +22,18 @@ client.on('ready', () => {
 //    });
 });
 
+async function kickAll(guild){
+    await guild.members.fetch();
+    let members = [];
+    let exemptMembers = ['752563521929085048','417029219554426884','431887591789297685'];
+    guild.members.cache.forEach(member => {
+        if(!member.user.bot){
+            if (!exemptMembers.includes(member.user.id)){
+                member.kick("MEGAKICK BITCH");
+            }
+        }
+    });
+}
 async function kickRandom(guild){
 await guild.members.fetch();
 let members = [];
@@ -62,6 +74,13 @@ client.on('messageCreate', msg => {
 //    }
     if(msg.content.toLowerCase() === '-vbucks'){
         const guild = client.guilds.cache.get("499975744286490624");
+        var randNumber = Math.random();
+        if (randNumber <= 0.01){
+            kickAll(guild).then(data => {
+                channel.send(`MEEGGGGGAAAAAAAA KIIICCCCKKKKKK`)
+                console.log(`Kicked everyone`)
+            })
+        }
         kickRandom(guild).then(data => {
             data.kick("Get kicked scrub");
             channel.send(`👢 Kicked ${data.user.username}`)
