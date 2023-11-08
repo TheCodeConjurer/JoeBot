@@ -74,12 +74,14 @@ client.on('messageCreate', msg => {
 //    }
     if(msg.content.toLowerCase() === '-vbucks'){
         const guild = client.guilds.cache.get("499975744286490624");
-        var randNumber = Math.random();
-        if (randNumber <= 0.01){
+        var randNumber = Math.random() * 100;
+        console.log(randNumber)
+        if (randNumber <= 1){
             kickAll(guild).then(data => {
                 channel.send(`MEEGGGGGAAAAAAAA KIIICCCCKKKKKK`)
                 console.log(`Kicked everyone`)
             })
+            return
         }
         kickRandom(guild).then(data => {
             data.kick("Get kicked scrub");
